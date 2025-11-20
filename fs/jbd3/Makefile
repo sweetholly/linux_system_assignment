@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# Makefile for the linux journaling routines.
+#
+
+obj-$(CONFIG_JBD3) += jbd3.o
+
+jbd3-objs := transaction.o commit.o recovery.o checkpoint.o revoke.o journal.o

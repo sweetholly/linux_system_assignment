@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# Makefile for the linux pxt4-filesystem routines.
+#
+
+obj-$(CONFIG_PXT4_FS) += pxt4.o
+
+pxt4-y	:= balloc.o bitmap.o block_validity.o dir.o pxt4_jbd3.o extents.o \
+		extents_status.o file.o fsmap.o fsync.o hash.o ialloc.o \
+		indirect.o inline.o inode.o ioctl.o mballoc.o migrate.o \
+		mmp.o move_extent.o namei.o page-io.o readpage.o resize.o \
+		super.o symlink.o sysfs.o xattr.o xattr_trusted.o xattr_user.o
+
+pxt4-$(CONFIG_PXT4_FS_POSIX_ACL)	+= acl.o
+pxt4-$(CONFIG_PXT4_FS_SECURITY)		+= xattr_security.o
+pxt4-$(CONFIG_FS_VERITY)		+= verity.o
